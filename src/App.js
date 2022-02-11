@@ -2,7 +2,9 @@ import React from 'react'
 import './App.css'
 import ListOfGifs from './components/ListOfGifs'
 import Home from './pages/Home'
+import Detail from './pages/Detail'
 import {Route, Link} from 'wouter'
+
 
 export default function App() {
   return (
@@ -17,6 +19,9 @@ export default function App() {
         <Route
           component={ListOfGifs}
           path="/search/:keyword" />
+        <Route
+          component={Detail}
+          path="/gif/:id" />
       </section>
     </div>
   )
