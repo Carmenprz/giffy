@@ -6,20 +6,18 @@ import { useGifs } from '../../hooks/useGifs';
 const POPULAR_GIFS = ['Rick', 'Morty', 'Venezuela'];
 
 export default function Home() {
+    const [keyword, setKeyword] = useState('')
+    const [path, pushLocation] = useLocation()
+    const { gifs } = useGifs();
 
-const [keyword, setKeyword] = useState('')
-const [path, pushLocation] = useLocation()
+    const handleSubmit = evt => {
+        evt.preventDefault()
+        pushLocation(`/search/${keyword}`)
+    }
 
-const {gifs} = useGifs();
-
-const handleSubmit = evt => {
-    evt.preventDefault()
-    pushLocation(`/search/${keyword}`)
-}
-
-const handleChange = evt => {
-    setKeyword(evt.target.value)
-}
+    const handleChange = evt => {
+        setKeyword(evt.target.value)
+    }
 
     return (
         <>
