@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import ListOfGifs from '../../components/ListOfGifs'
+import ListOfGifs from '../../components/ListOfGifs/ListOfGifs'
 import getGifs from '../../services/getGifs'
 
 export default function SearchResults ({ params }) {
@@ -16,8 +16,6 @@ export default function SearchResults ({ params }) {
                 setLoading(false)
             })
       }, [keyword])
-
-    if(loading) return <span>Loading...</span>
 
     return <>
         {loading
