@@ -1,14 +1,16 @@
 import React, { useState } from 'react'
 import { Link, useLocation } from 'wouter'
+import ListOfGifs from '../../components/ListOfGifs/ListOfGifs';
+import { useGifs } from '../../hooks/useGifs';
 
 const POPULAR_GIFS = ['Rick', 'Morty', 'Venezuela'];
 
 export default function Home() {
 
 const [keyword, setKeyword] = useState('')
-
 const [path, pushLocation] = useLocation()
 
+const {gifs} = useGifs();
 
 const handleSubmit = evt => {
     evt.preventDefault()
@@ -33,6 +35,7 @@ const handleChange = evt => {
                     </li>
                 ))}
             </ul>
+            <ListOfGifs gifs={gifs} />
         </>
     )
 }
